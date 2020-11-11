@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <title>Tic Tac Toe</title>
     <style>
+
       #container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 50%;
         margin: auto;
+        background-color: black;
+        padding: 6px;
+        min-width: 616px;
       }
 
       .grey_background {
@@ -16,9 +20,20 @@
         color: white;
       }
 
+      .white_background {
+        background-color: white;
+      }
+
       .square {
         min-width: 200px;
         min-height: 200px;
+        border: solid lightblue 1px;
+        border-radius: 8px;
+        margin: 2px;
+      }
+
+      .active-square {
+        outline-color: blue;
       }
 
       </style>
@@ -27,23 +42,30 @@
     <div id="container">
       <div class="grey_background square">
       </div>
-      <div class="square">
+      <div class="white_background square">
       </div>
       <div class="grey_background square">
       </div>
-      <div class="square">
+      <div class="white_background square">
       </div>
       <div class="grey_background square">
       </div>
-      <div class="square">
+      <div class="white_background square">
       </div>
-      <div class="grey_background square">
+      <div class="grey_background square active-square">
       </div>
-      <div class="square">
+      <div class="white_background square">
       </div>
       <div class="grey_background square">
       </div>
     </div>
+
+    <script type="text/javascript">
+
+      var player1;
+      var player2;
+
+    </script>
 
   </body>
 </html>
