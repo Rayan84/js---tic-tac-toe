@@ -27,14 +27,17 @@
       .square {
         min-width: 200px;
         min-height: 200px;
-        border: solid lightblue 1px;
+        border: solid transparent 5px;
         border-radius: 8px;
         margin: 2px;
+        transition: border 0.5s;
       }
 
-      .active-square {
-        outline-color: blue;
+      .square:hover {
+        border: solid gold 5px;
       }
+
+
 
       </style>
   </head>
@@ -52,7 +55,7 @@
       </div>
       <div class="white_background square">
       </div>
-      <div class="grey_background square active-square">
+      <div class="grey_background square">
       </div>
       <div class="white_background square">
       </div>
