@@ -42,6 +42,8 @@
       </style>
   </head>
   <body>
+      <!-- <p id="a"></p>
+      <p id="b"></p> -->
     <div id="container">
       <div class="grey_background square">
       </div>
@@ -64,9 +66,22 @@
     </div>
 
     <script type="text/javascript">
+      var a = 0;
+      var b = 0;
+      var paragraphA = document.getElementById('a');
+      var paragraphB = document.getElementById('b');
+      function initialization() {
+        var random = Math.random();
+        console.log(random);
+        if (random > 0.5) {
+          a++;
+        }else {
+          b++;
+        }
 
-      var player1;
-      var player2;
+        //  paragraphA.innerHTML = '0 has been generated ' + a + ' times';
+        //  paragraphB.innerHTML = '1 has been generated ' + b + ' times';
+      }
 
     </script>
 
