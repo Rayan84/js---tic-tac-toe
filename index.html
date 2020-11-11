@@ -5,6 +5,37 @@
     <title>Tic Tac Toe</title>
     <style>
 
+      .welcome_page {
+       position: absolute;
+       width: 50%;
+       background-color: rgba(255, 0, 0, 0.8);
+       text-align: center;
+       font-weight: bolder;
+       font-size: 30px;
+       color: white;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       border: solid white 6px;
+       border-radius: 8px;
+       }
+
+      .welcome_page > button {
+        width: 80%;
+        border: solid transparent 2px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 22px;
+        color: white;
+        background-color: lightgrey;
+        line-height: 40px;
+      }
+
+      .welcome_page > button:hover {
+        background-color: black;
+      }
+
       #container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -37,13 +68,20 @@
         border: solid gold 5px;
       }
 
-
+      .display-none {
+        display: none;
+      }
 
       </style>
   </head>
   <body>
       <!-- <p id="a"></p>
       <p id="b"></p> -->
+    <div class="welcome_page">
+      <h1>Welcome!</h1>
+      <button class="button" type="" name="button" onclick="hide(this.parentNode);">One Player</button>
+      <button class="button" type="button" name="button" onclick="hide(this.parentNode);">Two Players</button>
+    </div>
     <div id="container">
       <div class="grey_background square">
       </div>
@@ -81,6 +119,10 @@
 
         //  paragraphA.innerHTML = '0 has been generated ' + a + ' times';
         //  paragraphB.innerHTML = '1 has been generated ' + b + ' times';
+      }
+
+      function hide(element) {
+        element.style.display = 'none';
       }
 
     </script>
