@@ -6,44 +6,52 @@
     <style>
 
       .welcome_page {
-       position: absolute;
-       width: 50%;
+       width: 46%;
        background-color: rgba(255, 0, 0, 0.8);
        text-align: center;
        font-weight: bolder;
        font-size: 30px;
        color: white;
-       top: 50%;
-       left: 50%;
-       transform: translate(-50%, -50%);
        border: solid white 6px;
        border-radius: 8px;
+       z-index: 1;
        }
 
       .welcome_page > button {
         width: 80%;
         border: solid transparent 2px;
         margin-top: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         font-weight: bold;
         font-size: 22px;
-        color: white;
+        color: rgb(255, 0, 0);
         background-color: lightgrey;
         line-height: 40px;
+        border: solid white 6px;
+        border-radius: 8px;
       }
 
       .welcome_page > button:hover {
         background-color: black;
       }
 
+      #container,
+      #container > div > p,
+      .welcome_page {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
       #container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 50%;
-        margin: auto;
+        min-height: 500px;
         background-color: black;
         padding: 6px;
-        min-width: 616px;
+        min-width: 500px;
       }
 
       .grey_background {
@@ -56,54 +64,59 @@
       }
 
       .square {
-        min-width: 200px;
-        min-height: 200px;
+        position: relative;
+        max-height: 200px;
         border: solid transparent 5px;
         border-radius: 8px;
         margin: 2px;
         transition: border 0.5s;
+        text-align: center;
+        font-size: 80px;
       }
 
       .square:hover {
         border: solid gold 5px;
       }
 
+      #container > div > p {
+        margin: 0;
+      }
+
       .display-none {
         display: none;
       }
-
       </style>
+
   </head>
   <body>
-      <!-- <p id="a"></p>
-      <p id="b"></p> -->
     <div class="welcome_page">
       <h1>Welcome!</h1>
       <button class="button" type="" name="button" onclick="hide(this.parentNode);">One Player</button>
       <button class="button" type="button" name="button" onclick="hide(this.parentNode);">Two Players</button>
     </div>
     <div id="container">
-      <div class="grey_background square">
+      <div class="grey_background square" onclick="occupy(0); switchPlayer();">
       </div>
-      <div class="white_background square">
+      <div class="white_background square" onclick="occupy(1); switchPlayer();">
       </div>
-      <div class="grey_background square">
+      <div class="grey_background square" onclick="occupy(2); switchPlayer()">
       </div>
-      <div class="white_background square">
+      <div class="white_background square" onclick="occupy(3); switchPlayer()">
       </div>
-      <div class="grey_background square">
+      <div class="grey_background square" onclick="occupy(4); switchPlayer()">
       </div>
-      <div class="white_background square">
+      <div class="white_background square" onclick="occupy(5); switchPlayer()">
       </div>
-      <div class="grey_background square">
+      <div class="grey_background square" onclick="occupy(6); switchPlayer()">
       </div>
-      <div class="white_background square">
+      <div class="white_background square" onclick="occupy(7); switchPlayer()">
       </div>
-      <div class="grey_background square">
+      <div class="grey_background square" onclick="occupy(8); switchPlayer()">
       </div>
     </div>
 
     <script type="text/javascript">
+      var activePlayer = 'playerOne';
       var a = 0;
       var b = 0;
       var paragraphA = document.getElementById('a');
@@ -116,16 +129,36 @@
         }else {
           b++;
         }
-
-        //  paragraphA.innerHTML = '0 has been generated ' + a + ' times';
-        //  paragraphB.innerHTML = '1 has been generated ' + b + ' times';
       }
 
       function hide(element) {
         element.style.display = 'none';
       }
 
-    </script>
+      function occupy(num) {
+        var pX = document.createElement('P');
+        var xText = document.createTextNode('X');
+        var oText = document.createTextNode('O');
+        var squares = document.querySelectorAll('.square');
+        squares[num].removeAttribute('onclick');
+        if (activePlayer == 'playerOne') {
+          pX.appendChild(xText);
+          squares[num].appendChild(pX);
+        }else {
+          pX.appendChild(oText);
+          squares[num].appendChild(pX);
+        }
+      }
 
+      function switchPlayer() {
+        console.log('switchPlayer called');
+        if (activePlayer == 'playerOne') {
+          activePlayer = 'playerTwo';
+          console.log('Switch active player to: ' + activePlayer);
+        }else {
+          activePlayer = 'playerOne';
+        }
+      }
+    </script>
   </body>
 </html>
