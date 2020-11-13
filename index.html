@@ -6,21 +6,21 @@
     <style>
 
       .welcome_page {
-       width: 46%;
+       width: 60vmin;
+       height: 60vmin;
        background-color: rgba(255, 0, 0, 0.9);
        text-align: center;
        font-weight: bolder;
        font-size: 30px;
        color: white;
-       border: solid white 6px;
+       border: double white 6px;
        border-radius: 8px;
-       min-width: 400px;
+       min-width: 200px;
        z-index: 1;
        }
 
       .welcome_page > button {
         width: 80%;
-        border: solid transparent 2px;
         margin-top: 15px;
         margin-bottom: 25px;
         font-weight: bold;
@@ -28,7 +28,7 @@
         color: rgb(255, 0, 0);
         background-color: lightgrey;
         line-height: 40px;
-        border: solid white 6px;
+        border: double white 6px;
         border-radius: 8px;
       }
 
@@ -46,13 +46,12 @@
       }
 
       #container {
+        width: 46VW;
+        height: 46VW;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        width: 50%;
-        min-height: 500px;
         background-color: black;
         padding: 6px;
-        min-width: 500px;
       }
 
       .grey_background {
@@ -72,7 +71,7 @@
         margin: 2px;
         transition: border 0.5s;
         text-align: center;
-        font-size: 10rem;
+        font-size: 10em;
       }
 
       .square:hover {
