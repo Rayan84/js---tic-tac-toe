@@ -8,12 +8,12 @@
 * Atom
 * Linters
 
-# Screenshot
+# Screenshots
 <img src='./screenshot.png'>
 <img src='./screenshot-2.png'>
 
 # Live 
-[Live](https://rayan84.github.io/js---tic-tac-toe/)
+[Play online](https://rayan84.github.io/js---tic-tac-toe/)
 
 #  :bust_in_silhouette: Worked on this challenge:
 ## Rayan Rassam
