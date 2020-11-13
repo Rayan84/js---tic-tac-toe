@@ -96,34 +96,34 @@
     </div>
     <div id="play-again-window" class="welcome_page display-none">
       <h1 id="winner"></h1>
-      <button class="button" type="" name="button" onclick="hide(this.parentNode);">Play again!</button>
+      <button class="button" type="" name="button" onclick="hide(this.parentNode); reset();">Play again!</button>
     </div>
     <div id="container">
-      <div class="grey_background square" onclick="occupy(0); switchPlayer();">
+      <div class="grey_background square" onclick="occupy(0);">
         <p></p>
       </div>
-      <div class="white_background square" onclick="occupy(1); switchPlayer();">
+      <div class="white_background square" onclick="occupy(1);">
         <p></p>
       </div>
-      <div class="grey_background square" onclick="occupy(2); switchPlayer()">
+      <div class="grey_background square" onclick="occupy(2);">
         <p></p>
       </div>
-      <div class="white_background square" onclick="occupy(3); switchPlayer()">
+      <div class="white_background square" onclick="occupy(3);">
         <p></p>
       </div>
-      <div class="grey_background square" onclick="occupy(4); switchPlayer()">
+      <div class="grey_background square" onclick="occupy(4);">
         <p></p>
       </div>
-      <div class="white_background square" onclick="occupy(5); switchPlayer()">
+      <div class="white_background square" onclick="occupy(5);">
         <p></p>
       </div>
-      <div class="grey_background square" onclick="occupy(6); switchPlayer()">
+      <div class="grey_background square" onclick="occupy(6);">
         <p></p>
       </div>
-      <div class="white_background square" onclick="occupy(7); switchPlayer()">
+      <div class="white_background square" onclick="occupy(7);">
         <p></p>
       </div>
-      <div class="grey_background square" onclick="occupy(8); switchPlayer()">
+      <div class="grey_background square" onclick="occupy(8);">
         <p></p>
       </div>
     </div>
@@ -147,6 +147,7 @@
       function hide(element) {
         element.style.display = 'none';
       }
+
       var count = 0;
       var squares = document.querySelectorAll('.square');
       function occupy(num) {
@@ -191,8 +192,10 @@
         }else if (squareSeven != '' && squareSeven == squareEight && squareEight == squareNine) {
           announceWinner(activePlayer);
         }else if (count == 9) {
-          announceWinner('No winner');
+          announceWinner('No one');
         }
+
+        switchPlayer();
       }
 
       function switchPlayer() {
@@ -208,7 +211,18 @@
       function announceWinner(name) {
         document.getElementById('play-again-window').style.display = 'block';
         document.getElementById('winner').innerHTML = name + ' wins!';
+      }
 
+      function reset() {
+        for (let i = 0; i < 9; i++) {
+          if (squares[i].onclick == undefined) {
+            squares[i].childNodes[1].innerHTML = '';
+            squares[i].setAttribute('onclick', 'occupy(' + i + ');');
+            console.log(i);
+          }
+
+          count = 0;
+        }
       }
     </script>
   </body>
