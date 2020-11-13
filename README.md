@@ -10,9 +10,10 @@
 
 # Screenshot
 <img src='./screenshot.png'>
+<img src='./screenshot-2.png'>
 
 # Live 
-[](https://rayan84.github.io/js---tic-tac-toe/)
+[Live](https://rayan84.github.io/js---tic-tac-toe/)
 
 #  :bust_in_silhouette: Worked on this challenge:
 ## Rayan Rassam
