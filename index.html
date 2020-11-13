@@ -147,7 +147,7 @@
       function hide(element) {
         element.style.display = 'none';
       }
-
+      var count = 0;
       var squares = document.querySelectorAll('.square');
       function occupy(num) {
         var squares = document.querySelectorAll('.square');
@@ -164,6 +164,7 @@
       }
 
       function checkStatus(num, activePlayer) {
+        count++;
         var squareOne = squares[0].childNodes[1].textContent;
         var squareTwo = squares[1].childNodes[1].textContent;
         var squareThree = squares[2].childNodes[1].textContent;
@@ -189,6 +190,8 @@
           announceWinner(activePlayer);
         }else if (squareSeven != '' && squareSeven == squareEight && squareEight == squareNine) {
           announceWinner(activePlayer);
+        }else if (count == 9) {
+          announceWinner('No winner');
         }
       }
 
