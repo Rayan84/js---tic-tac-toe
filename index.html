@@ -210,8 +210,12 @@
       }
 
       function announceWinner(name) {
-        document.getElementById('play-again-window').style.display = 'block';
-        document.getElementById('winner').innerHTML = name + ' wins!';
+        var playAgainWindow = document.getElementById('play-again-window');
+        setTimeout(function () {
+          playAgainWindow.style.display = 'block';
+          document.getElementById('winner').innerHTML = name + ' wins!';
+        }, 350);
+
         for (let i = 0; i < 9; i++) {
           if (squares[i].onclick !== undefined) {
             squares[i].removeAttribute('onclick');
