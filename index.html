@@ -94,6 +94,10 @@
       <button class="button" type="" name="button" onclick="hide(this.parentNode);">One Player</button>
       <button class="button" type="button" name="button" onclick="hide(this.parentNode);">Two Players</button>
     </div>
+    <div id="play-again-window" class="welcome_page display-none">
+      <h1 id="winner"></h1>
+      <button class="button" type="" name="button" onclick="hide(this.parentNode);">Play again!</button>
+    </div>
     <div id="container">
       <div class="grey_background square" onclick="occupy(0); switchPlayer();">
         <p></p>
@@ -155,21 +159,37 @@
           squares[num].childNodes[1].innerHTML = 'O';
           console.log(squares[num].childNodes[1]);
         }
-        checkStatus(num);
+
+        checkStatus(num, activePlayer);
       }
 
-      function checkStatus(num) {
-        var squareOne = quares[0].childNodes[1].textContent;
-        var squareTwo = quares[1].childNodes[1].textContent;
-        var squareThree = quares[2].childNodes[1].textContent;
-        var squareFour = quares[3].childNodes[1].textContent;
-        var squareFive = quares[4].childNodes[1].textContent;
-        var squareSix = quares[5].childNodes[1].textContent;
-        var squareSeven = quares[6].childNodes[1].textContent;
-        var squareEight = quares[7].childNodes[1].textContent;
-        var squareNine = quares[8].childNodes[1].textContent;
-
-  
+      function checkStatus(num, activePlayer) {
+        var squareOne = squares[0].childNodes[1].textContent;
+        var squareTwo = squares[1].childNodes[1].textContent;
+        var squareThree = squares[2].childNodes[1].textContent;
+        var squareFour = squares[3].childNodes[1].textContent;
+        var squareFive = squares[4].childNodes[1].textContent;
+        var squareSix = squares[5].childNodes[1].textContent;
+        var squareSeven = squares[6].childNodes[1].textContent;
+        var squareEight = squares[7].childNodes[1].textContent;
+        var squareNine = squares[8].childNodes[1].textContent;
+        if (squareOne != '' && squareOne == squareTwo && squareTwo == squareThree) {
+          announceWinner(activePlayer);
+        }else if (squareOne != '' && squareOne == squareFive && squareFive == squareNine) {
+          announceWinner(activePlayer);
+        }else if (squareOne != '' && squareOne == squareFour && squareFour == squareSeven) {
+          announceWinner(activePlayer);
+        }else if (squareTwo != '' && squareTwo == squareFive && squareFive == squareEight) {
+          announceWinner(activePlayer);
+        }else if (squareThree != '' && squareThree == squareSix && squareSix == squareNine) {
+          announceWinner(activePlayer);
+        }else if (squareThree != '' && squareThree == squareFive && squareFive == squareSeven) {
+          announceWinner(activePlayer);
+        }else if (squareFour != '' && squareFour == squareFive && squareFive == squareSix) {
+          announceWinner(activePlayer);
+        }else if (squareSeven != '' && squareSeven == squareEight && squareEight == squareNine) {
+          announceWinner(activePlayer);
+        }
       }
 
       function switchPlayer() {
@@ -180,6 +200,12 @@
         }else {
           activePlayer = 'playerOne';
         }
+      }
+
+      function announceWinner(name) {
+        document.getElementById('play-again-window').style.display = 'block';
+        document.getElementById('winner').innerHTML = name + ' wins!';
+
       }
     </script>
   </body>
