@@ -87,28 +87,39 @@
         display: none;
       }
 
-      @media screen and (max-width: 700px){
+      @media screen and (max-width: 1000px){
+        body {
+          
+        }
         .welcome_page,
         #container {
          width: 90vmin;
          height: 90vmin;
        }
       }
-       @media screen and (max-width: 500px){
-         .welcome_page,
-         #container {
-          width: 99vmin;
-          height: 99vmin;
+      @media screen and (max-width: 400px){
+        body {
+
         }
+        .welcome_page,
+        #container {
+         width: 90vmin;
+         height: 90vmin;
+       }
       }
+
       </style>
 
   </head>
   <body>
     <div class="welcome_page">
       <h1>Welcome!</h1>
-      <button class="button" type="" name="button" onclick="hide(this.parentNode);">One Player</button>
-      <button class="button" type="button" name="button" onclick="hide(this.parentNode);">Two Players</button>
+      <button class="button" type="" name="button" onclick="hide(this.parentNode); initialization();">One Player</button>
+      <button class="button" type="button" name="button" onclick="hide(this.parentNode); initialization();">Two Players</button>
+    </div>
+    <div id="first-player" class="welcome_page display-none">
+      <h1></h1>
+      <button class="button" type="" onclick="hide(this.parentNode);">OK</button>
     </div>
     <div id="play-again-window" class="welcome_page display-none">
       <h1 id="winner"></h1>
@@ -145,19 +156,18 @@
     </div>
 
     <script type="text/javascript">
-      var activePlayer = 'playerOne';
-      var a = 0;
-      var b = 0;
-      var paragraphA = document.getElementById('a');
-      var paragraphB = document.getElementById('b');
+      var activePlayer = '';
+      var firstPlayer = document.getElementById('first-player');
       function initialization() {
         var random = Math.random();
-        console.log(random);
         if (random > 0.5) {
-          a++;
+          activePlayer = 'playerOne';
         }else {
-          b++;
+          activePlayer = 'playerTwo';
         }
+
+        firstPlayer.style.display = 'block';
+        firstPlayer.childNodes[1].innerHTML = activePlayer + ' plays first';
       }
 
       function hide(element) {
